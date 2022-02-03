@@ -48,7 +48,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	//"postCreateCommand": "awscliv2 --install",
+	"postStartCommand": "curl https://raw.githubusercontent.com/docker/compose-cli/main/scripts/install/install_linux.sh -o install_cli.sh && sh install_cli.sh && rm -f install_cli.sh",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
