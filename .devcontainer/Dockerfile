@@ -15,7 +15,6 @@ RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requ
     && wget --progress=dot:mega "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -O "awscliv2.zip" \
     && unzip awscliv2.zip \
     && ./aws/install \
-    && su vscode -c "echo \"complete -C /aws/dist/aws_completer aws\" >> ~/.bashrc" \
     && apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends emacs-nox=1:27.1+1-3.1 dos2unix=7.4.1-1 uchardet=0.0.7-1 \
     && apt-get clean && rm -rf /var/lib/apt/lists/* \
@@ -26,7 +25,8 @@ RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requ
     && tar xvf shellcheck-v0.8.0.linux.x86_64.tar.xz \
     && mv shellcheck-v0.8.0/shellcheck /usr/bin/ \
     && rm -rf shellcheck* \
-    && chmod 755 /usr/bin/shellcheck
+    && chmod 755 /usr/bin/shellcheck \
+    && su vscode -c "echo \"complete -C /aws/dist/aws_completer aws\" >> ~/.bashrc" 
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
