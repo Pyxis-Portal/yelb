@@ -34,7 +34,9 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-python.vscode-pylance",
-		"ms-python.python"
+		"ms-python.python",
+		"exiasr.hadolint",
+		"timonwong.shellcheck"
 	],
 
 	"mounts": [
