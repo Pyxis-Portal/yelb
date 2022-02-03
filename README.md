@@ -1,3 +1,7 @@
+# Example App using Docker and different Deployment Strategies
+
+### Reference
+- [Deploy applications on Amazon ECS using Docker Compose by Massimo Re Ferre | on 19 NOV 2020](https://aws.amazon.com/blogs/containers/deploy-applications-on-amazon-ecs-using-docker-compose/)
 
 #### Why Yelb 
 
