@@ -15,11 +15,18 @@ RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requ
     && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
     && unzip awscliv2.zip \
     && ./aws/install \
-    && su vscode -c "echo \"complete -C /aws/dist/aws_completer aws\" >> ~/.bashrc"
-
-# [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+    && su vscode -c "echo \"complete -C /aws/dist/aws_completer aws\" >> ~/.bashrc" \
+    && apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends emacs-nox=1:27.1+1-3.1 dos2unix=7.4.1-1 uchardet=0.0.7-1 \
+    && apt-get clean && rm -rf /var/lib/apt/lists/* \
+    && wget --progress=dot:mega https://github.com/hadolint/hadolint/releases/download/v2.8.0/hadolint-Linux-x86_64 \
+    -O /usr/bin/hadolint \
+    && chmod 755 /usr/bin/hadolint \
+    && wget --progress=dot:mega https://github.com/koalaman/shellcheck/releases/download/v0.8.0/shellcheck-v0.8.0.linux.x86_64.tar.xz \
+    && tar xvf shellcheck-v0.8.0.linux.x86_64.tar.xz \
+    && mv shellcheck-v0.8.0/shellcheck /usr/bin/ \
+    && rm -rf shellcheck* \
+    && chmod 755 /usr/bin/shellcheck
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
